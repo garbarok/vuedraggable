@@ -21,21 +21,16 @@
           </transition-group>
         </div>
       </div>
-
     </div>
     <div class="sidebar">
       <div class="sidebar-title">Elements <a href="https://github.com/garbarok/vuedraggable" target="_blank"
           class="github-icon">
           <i class="fab fa-github"></i>
         </a></div>
-
       <SidebarElements :sidebarElements="sidebarElements" :move="checkMove" />
     </div>
   </div>
 </template>
-
-
-
 
 <script>
 import draggable from "vuedraggable";
@@ -49,7 +44,7 @@ export default {
   },
   data() {
     return {
-      sidebarElements: sidebarElements,
+      sidebarElements,
       areas: [
         { name: 'Header', elements: [] },
         { name: 'Body', elements: [] },
@@ -58,9 +53,10 @@ export default {
     };
   },
   methods: {
-    checkMove: function (evt) {
-      const toAreaName = evt.to.closest('.area').classList[1].split('-')[1];
-      const draggedElementType = evt.draggedContext.element.type;
+    checkMove(evt) {
+      return this.isMoveValid(evt.to.closest('.area').classList[1].split('-')[1], evt.draggedContext.element.type);
+    },
+    isMoveValid(toAreaName, draggedElementType) {
       if (toAreaName === 'header' && draggedElementType !== 'image') {
         return false;
       }
