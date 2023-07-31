@@ -5,7 +5,8 @@
         <div class="area-name">{{ area.name }}</div>
         <div class="area-content">
           <transition-group name="list-group" tag="div" class="list-group">
-            <draggable :list="area.elements" :group="{ name: 'areas' }" :empty-insert-threshhold="500">
+            <draggable :list="area.elements" :group="{ name: 'areas' }" ghost-class="ghost" :move="checkMove"
+              :empty-insert-threshhold="500">
               <template #item="{ element, index }">
                 <div class="element" :key="element.id">
                   <div class="icon">
@@ -24,7 +25,8 @@
     <div class="sidebar">
       <div class="sidebar-title">Elements</div>
       <div class="sidebar-list">
-        <draggable class="sidebar-list" :list="sidebarElements" :group="{ name: 'areas', pull: 'clone', put: false }">
+        <draggable class="sidebar-list" :list="sidebarElements" :group="{ name: 'areas', pull: 'clone', put: false }"
+          :move="checkMove">
           <template #item="{ element, index }">
             <div class="element sidebar-element" :key="element.id">
               <div class="icon">
@@ -65,8 +67,17 @@ export default {
     };
   },
   methods: {
-    log: function (evt) {
-      window.console.log(evt);
+    checkMove: function (evt) {
+      const toAreaName = evt.to.closest('.area').classList[1].split('-')[1];
+      const draggedElementType = evt.draggedContext.element.type;
+
+      if (toAreaName === 'header' && draggedElementType !== 'image') {
+        return false;
+      }
+      if (toAreaName === 'footer' && draggedElementType !== 'text') {
+        return false;
+      }
+      return true;
     }
   }
 };
@@ -135,6 +146,10 @@ svg {
   align-items: center;
   gap: 16px;
 
+}
+
+.ghost {
+  opacity: 0.5;
 }
 
 .element {
