@@ -217,19 +217,10 @@ svg {
 
 }
 
-
 .sortable-chosen {
   position: relative !important;
-  /* Enables absolute positioning within parent container */
-  left: 50%;
-  /* Center horizontally */
-  transform: translateX(-50%);
-  /* Offset by half of the element's width */
   max-width: 100%;
-  /* Allows the element to take up the full width of its container */
   min-width: 50px;
-  /* Sets a minimum width */
   width: auto;
-  /* Sizes the element according to its content */
 }
 </style>
