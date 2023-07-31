@@ -21,9 +21,14 @@
           </transition-group>
         </div>
       </div>
+
     </div>
     <div class="sidebar">
-      <div class="sidebar-title">Elements</div>
+      <div class="sidebar-title">Elements <a href="https://github.com/garbarok/vuedraggable" target="_blank"
+          class="github-icon">
+          <i class="fab fa-github"></i>
+        </a></div>
+
       <SidebarElements :sidebarElements="sidebarElements" :move="checkMove" />
     </div>
   </div>
@@ -96,6 +101,19 @@ svg {
   text-align: left;
   font: var(--heading-medium-semi-bold, 600 18px "Montserrat", sans-serif);
   position: relative;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.github-icon {
+  font-size: 24px;
+  color: #333;
+}
+
+.github-icon:hover {
+  color: #4078c0;
 }
 
 .list-group:empty,
@@ -198,6 +216,7 @@ svg {
   line-height: normal;
 
 }
+
 
 .sortable-chosen {
   position: relative !important;
