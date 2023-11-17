@@ -1,7 +1,27 @@
-# Vue 3 + Vite
+# Vue 3 Drag-and-Drop Layout Builder
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## Introduction
+Welcome to the Vue 3 Drag-and-Drop Layout Builder! This simple application demonstrates the power of Vue 3's reactivity and component system to create a dynamic user interface. Users can drag and drop elements to construct a custom layout with different zones.
 
-## Recommended IDE Setup
+## Features
+- **Drag-and-Drop Interface:** Intuitive dragging and dropping of elements into designated zones.
+- **Element Types:** Three types of elements are supported:
+  - Text Blocks
+  - Images
+  - Tables
+- **Zone Restrictions:**
+  - **Header:** Only image elements can be placed here.
+  - **Body:** Accepts text, images, and tables.
+  - **Footer:** Exclusively for text elements.
+- **Vue 3 Powered:** Built with the latest Vue 3 framework for a modern, reactive user experience.
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## Project Setup
+```bash
+# install dependencies
+npm install
+
+# serve with hot reload at localhost:5173
+npm run dev
+
+# build for production with minification
+npm run build
